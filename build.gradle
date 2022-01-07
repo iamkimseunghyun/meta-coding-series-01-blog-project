@@ -23,7 +23,7 @@ dependencies {
 //    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 //    추가 라이브러리
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.6.1'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
 
     compileOnly 'org.projectlombok:lombok'

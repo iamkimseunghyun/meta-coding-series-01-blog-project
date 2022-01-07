@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="layout/head::head"></div>
+<body>
+<div th:replace="layout/header::header"></div>
+
+<div class="container-fluid mt-3">
+    <form action="/action_page.php" th:action th:object="${user}" method="post">
+        <div class="mb-3 mt-3">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" class="form-control" id="username" th:field="*{username}" placeholder="Enter username">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="Enter password">
+        </div>
+        <div class="form-check mb-3">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">로그인</button>
+    </form>
+</div>
+
+<div th:replace="layout/footer::footer"></div>
+</body>
+</html>
