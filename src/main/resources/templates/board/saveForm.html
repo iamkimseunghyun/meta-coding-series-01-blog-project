@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="layout/head::head"></div>
+<body>
+<div th:replace="layout/header::header"></div>
+
+<div class="container">
+    <form>
+        <div class="mb-3 mt-3">
+            <label for="title">Title</label>
+            <input class="form-control" id="title" placeholder="Enter title" type="text">
+        </div>
+        <div class="mb-3">
+            <label for="content">Content</label>
+            <textarea class="form-control summernote" id="content" rows="5" cols=""></textarea>
+        </div>
+    </form>
+    <button id="btn-save" class="btn btn-primary">글쓰기</button>
+</div>
+
+<script>
+    $('.summernote').summernote({
+        tabsize: 2,
+        height: 300
+    });
+</script>
+<script th:src="@{/js/board.js}"></script>
+<div th:replace="layout/footer::footer">저장</div>
+</body>
+</html>

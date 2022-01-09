@@ -6,7 +6,7 @@
 <div th:replace="layout/header::header"></div>
 
 <div class="container-fluid mt-3">
-    <form th:action th:object="${user}" method="POST">
+    <form th:action="@{/auth/loginProc}" th:object="${user}" method="POST">
         <div class="mb-3 mt-3">
             <label for="username" class="form-label">Username:</label>
             <input type="text" class="form-control" id="username" th:field="*{username}" placeholder="Enter username">

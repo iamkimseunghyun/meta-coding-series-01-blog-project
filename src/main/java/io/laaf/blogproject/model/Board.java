@@ -22,17 +22,16 @@ public class Board {
     @Column(nullable = false, length = 100)
     private String title;
 
-    @Lob
-    private String content;
+    @Lob // 대용량 데이터
+    private String content; // 섬머노트 라이브러리
 
-    @ColumnDefault("0")
-    private Long count;
+    private Long count; // 조회수
 
-    @ManyToOne(fetch = FetchType.EAGER) // Many = Board, User = One
+    @ManyToOne(fetch = FetchType.LAZY) // Many = Board, User = One
     @JoinColumn(name = "userId")
     private User user;
 
-    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER) // mappedBy 연관관계의 주인이 아니다(난 FK가 아니다) DB에 칼럼을 만들지 마세요.
+    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY) // mappedBy 연관관계의 주인이 아니다(난 FK가 아니다) DB에 칼럼을 만들지 마세요.
     private List<Reply> reply;
 
     @CreationTimestamp
