@@ -24,7 +24,8 @@ public class PrincipalDetailService implements UserDetailsService {
                 .orElseThrow(
                         () -> new UsernameNotFoundException("해당 사용자를 찾을 수 없습니다. :" + username)
                 );
-        return new PrincipalDetail(principal); // 시큐리티 세션에 유저 정보가 저장 됨. User 객체 없으면 디폴트 시큐리티 계정으로 로그인!
+        return new PrincipalDetail(principal);
+        // 시큐리티 세션에 유저 정보가 저장 됨. User 객체 없으면 디폴트 시큐리티 계정으로 로그인!
 
     }
 }

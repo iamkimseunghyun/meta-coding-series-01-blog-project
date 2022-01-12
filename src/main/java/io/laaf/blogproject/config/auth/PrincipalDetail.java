@@ -15,18 +15,8 @@ public class PrincipalDetail implements UserDetails {
     private User user; // 콤포지션
 
     public PrincipalDetail(User user) {
+
         this.user = user;
-    }
-
-    // 계정이 갖고 있는 권한을 리턴한다. (권한이 여러 개면 루프 필요)
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-
-        Collection<GrantedAuthority> collectors = new ArrayList<>();
-
-        collectors.add(() -> "ROLE_" + user.getRole());
-
-        return collectors;
     }
 
     @Override
@@ -61,5 +51,16 @@ public class PrincipalDetail implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    // 계정이 갖고 있는 권한을 리턴한다. (권한이 여러 개면 루프 필요)
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+
+        Collection<GrantedAuthority> collectors = new ArrayList<>();
+
+        collectors.add(() -> "ROLE_" + user.getRole());
+
+        return collectors;
     }
 }
