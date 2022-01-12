@@ -5,24 +5,27 @@
 <body>
 <div th:replace="layout/header::header"></div>
 
-<div class="container-fluid mt-3">
-    <form th:action="@{/auth/loginProc}" th:object="${user}" method="POST">
-        <div class="mb-3 mt-3">
-            <label for="username" class="form-label">Username:</label>
-            <input type="text" class="form-control" id="username" th:field="*{username}" placeholder="Enter username">
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password:</label>
-            <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="Enter password">
-        </div>
-        <div class="form-check mb-3">
-            <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="remember"> Remember me
-            </label>
-        </div>
-        <button id="btn-login" class="btn btn-primary">로그인</button>
-    </form>
-
+<div class="container">
+    <div class="container-fluid mt-3">
+        <form method="POST" th:action="@{/auth/loginProc}" th:object="${user}">
+            <div class="mb-3 mt-3">
+                <label class="form-label" for="username">Username:</label>
+                <input class="form-control" id="username" placeholder="Enter username" th:field="*{username}"
+                       type="text">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Password:</label>
+                <input class="form-control" id="password" placeholder="Enter password" th:field="*{password}"
+                       type="password">
+            </div>
+            <div class="form-check mb-3">
+                <label class="form-check-label">
+                    <input class="form-check-input" name="remember" type="checkbox"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-primary" id="btn-login">로그인</button>
+        </form>
+    </div>
 </div>
 <div th:replace="layout/footer::footer"></div>
 </body>

@@ -6,27 +6,30 @@
 <body>
 <div th:replace="layout/header::header"></div>
 
-<div class="container-fluid mt-3">
-    <form th:action th:object="${user}">
-        <div class="mb-3 mt-3">
-            <label for="username" class="form-label">Username:</label>
-            <input type="text" class="form-control" id="username" th:field="*{username}" placeholder="Enter username">
-        </div>
+<div class="container">
+    <div class="container-fluid mt-3">
+        <form th:action th:object="${user}">
+            <div class="mb-3 mt-3">
+                <label class="form-label" for="username">Username:</label>
+                <input class="form-control" id="username" placeholder="Enter username" th:field="*{username}"
+                       type="text">
+            </div>
 
-        <div class="mb-3">
-            <label for="password" class="form-label">Password:</label>
-            <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="Enter password">
-        </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Password:</label>
+                <input class="form-control" id="password" placeholder="Enter password" th:field="*{password}"
+                       type="password">
+            </div>
 
-        <div class="mb-3 mt-3">
-            <label for="email" class="form-label">Email:</label>
-            <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Enter email">
-        </div>
+            <div class="mb-3 mt-3">
+                <label class="form-label" for="email">Email:</label>
+                <input class="form-control" id="email" placeholder="Enter email" th:field="*{email}" type="email">
+            </div>
 
-    </form>
-    <button id="btn-save" type="submit" class="btn btn-primary">회원가입</button>
+        </form>
+        <button class="btn btn-primary" id="btn-save" type="submit">회원가입</button>
+    </div>
 </div>
-
 <script th:src="@{/js/user.js}"></script>
 
 <div th:replace="layout/footer::footer"></div>
