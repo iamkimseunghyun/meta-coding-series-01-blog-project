@@ -1,7 +1,7 @@
 package io.laaf.blogproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -31,8 +31,10 @@ public class Board {
     @JoinColumn(name = "userId")
     private User user;
 
-    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY) // mappedBy 연관관계의 주인이 아니다(난 FK가 아니다) DB에 칼럼을 만들지 마세요.
-    private List<Reply> reply;
+    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE) // mappedBy 연관관계의 주인이 아니다(난 FK가 아니다) DB에 칼럼을 만들지 마세요.
+    @JsonIgnoreProperties({"board"})
+    @OrderBy("id desc ")
+    private List<Reply> replies;
 
     @CreationTimestamp
     private LocalDateTime createDate;

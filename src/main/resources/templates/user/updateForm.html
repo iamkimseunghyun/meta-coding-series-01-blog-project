@@ -10,22 +10,28 @@
     <div class="container-fluid mt-3">
         <form th:action>
             <input id="id" th:value="${#authentication.principal.user.id}" type="hidden"/>
-            <div class="mb-3 mt-3">
-                <label class="form-label" for="username">Username:</label>
-                <input class="form-control" id="username" readonly th:value="${#authentication.principal.user.username}"
-                       type="text">
+            <div class="form-group">
+                <div class="mb-3 mt-3">
+                    <label class="form-label" for="username">Username:</label>
+                    <input class="form-control" id="username" readonly
+                           th:value="${#authentication.principal.user.username}"
+                           type="text">
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label class="form-label" for="password">Password:</label>
-                <input class="form-control" id="password" th:value="${#authentication.principal.user.password}"
-                       type="password">
+            <div class="form-group" th:unless="${#authentication.principal.user.oauth}">
+                <div class="mb-3">
+                    <label class="form-label" for="password">Password:</label>
+                    <input class="form-control" id="password" th:value="${#authentication.principal.user.password}"
+                           type="password">
+                </div>
             </div>
+
 
             <div class="mb-3 mt-3">
                 <label class="form-label" for="email">Email:</label>
-                <input class="form-control" id="email" th:value="${#authentication.principal.user.email}"
-                       type="email">
+                <input class="form-control" id="email" readonly
+                       th:value="${#authentication.principal.user.email}" type="email">
             </div>
 
         </form>

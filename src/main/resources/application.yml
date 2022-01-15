@@ -22,3 +22,5 @@ spring:
         use_sql_comments: true
     open-in-view: true
 
+kaka:
+  key: kaka1234
