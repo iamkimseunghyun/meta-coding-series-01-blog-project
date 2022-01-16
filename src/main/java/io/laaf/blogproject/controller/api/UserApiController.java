@@ -14,6 +14,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -28,7 +29,7 @@ public class UserApiController {
     private AuthenticationManager authenticationManager;
 
     @PostMapping("/auth/joinProc")
-    public ResponseDto<Integer> save(@RequestBody User user) {
+    public ResponseDto<Integer> save(@Validated @RequestBody User user) {
         System.out.println("UserApiController : 호출됨");
         userService.회원가입(user);
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
